@@ -9,8 +9,16 @@
 <div class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h3>98 Result(s)</h3>
 
-    <!-- TODO #3 - Use the same list display from search.html -->
+
+    <div th:replace="search :: list_all"></div>
+    <table th:each = "job : ${jobs}" class="job-listing">
+             <tr th:each = "column : ${job}">
+                 <td th:text="${column.key}"></td>
+                 <td th:text="${column.value}"></td>
+             </tr>
+     </table>
 
 </div>
 
